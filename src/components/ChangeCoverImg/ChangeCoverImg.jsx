@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import notFoundImg from "../../assets/images/not-found.webp";
+import notFoundImg from "../../assets/images/not-found-landscape.jpg";
 
-const ChangeAvatar = () => {
+const ChangeCoverImg = () => {
   const fileInputRef = useRef(null);
   const [preview, setPreview] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -51,11 +51,11 @@ const ChangeAvatar = () => {
   return (
     <div className="px-5 pb-5">
       <div className="flex items-center justify-center">
-        <div className="w-[90px] h-[90px] rounded-full">
+        <div className="w-full h-[100px] rounded-md">
           <img
-            className="w-[90px] h-[90px] rounded-full object-cover object-top border"
+            className="w-full h-[100px] object-cover object-center border rounded-md"
             src={preview ? preview : notFoundImg}
-            alt="User image"
+            alt="Cover image"
           />
         </div>
       </div>
@@ -70,7 +70,7 @@ const ChangeAvatar = () => {
           onClick={handleButtonClick}
           className="text-[14px] bg-[#2FCD71] hover:bg-green-500 text-white px-3 py-[3px] rounded-md"
         >
-          Select Avatar
+          Select cover image
         </button>
         <button
           onClick={handleUpload}
@@ -79,8 +79,13 @@ const ChangeAvatar = () => {
           Upload
         </button>
       </div>
+      <div className="text-center mt-2">
+        <span className="text-[14px] text-red-500">
+          NB: Select landscape image for better view
+        </span>
+      </div>
     </div>
   );
 };
 
-export default ChangeAvatar;
+export default ChangeCoverImg;

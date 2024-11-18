@@ -7,22 +7,28 @@ import { useState } from "react";
 import { Dialog } from "primereact/dialog";
 import ChangeAvatar from "../../components/ChangeAvatar/ChangeAvatar";
 import notFoundImg from "../../assets/images/not-found.webp";
+import ChangeCoverImg from "../../components/ChangeCoverImg/ChangeCoverImg";
 
 const Home = () => {
-  const [visible, setVisible] = useState(false);
+  const [avatarModalVisible, setAvatarModalVisible] = useState(false);
+  const [coverImageModalVisible, setCoverImageModalVisible] = useState(false);
+
   return (
     <>
       <div className="wrapper">
         <div className="flex items-center justify-center px-4 sm:px-0">
           <div className="w-[500px] mt-10 mb-10 shadow-[0px_10px_36px_0px_rgba(0,0,0,0.16),_0px_0px_0px_1px_rgba(0,0,0,0.06)] rounded-md ">
             {/* --- cover image section start --- */}
-            <div className="bg-[#EAEAEA] h-[80px] relative">
+            <div className="bg-[#EAEAEA] h-[100px] relative">
               <img
-                className="w-full h-[80px] object-cover object-center rounded-t-md"
+                className="w-full h-[100px] object-cover object-center rounded-t-md"
                 src={landScapeImg}
                 alt="Cover image"
               />
-              <div className="absolute right-0 top-0 z-20 w-[30px] h-[30px] bg-white border border-blue-400 rounded-full flex items-center justify-center text-[18px] text-[#7a7575]  hover:bg-blue-500 hover:text-white cursor-pointer">
+              <div
+                onClick={() => setCoverImageModalVisible(true)}
+                className="absolute right-0 top-0 z-20 w-[30px] h-[30px] bg-white border border-blue-400 rounded-full flex items-center justify-center text-[18px] text-[#7a7575]  hover:bg-blue-500 hover:text-white cursor-pointer"
+              >
                 <MdEdit />
               </div>
             </div>
@@ -37,7 +43,7 @@ const Home = () => {
                   alt="User image"
                 />
                 <div
-                  onClick={() => setVisible(true)}
+                  onClick={() => setAvatarModalVisible(true)}
                   className="absolute right-0 bottom-0 z-20 w-[30px] h-[30px] bg-white border border-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer"
                 >
                   <LuCamera />
@@ -69,17 +75,31 @@ const Home = () => {
 
       {/* --- avatar change modal start --- */}
       <Dialog
-        visible={visible}
+        visible={avatarModalVisible}
         style={{ width: "30vw" }}
         breakpoints={{ "960px": "75vw", "641px": "100vw" }}
         onHide={() => {
-          if (!visible) return;
-          setVisible(false);
+          if (!avatarModalVisible) return;
+          setAvatarModalVisible(false);
         }}
       >
         <ChangeAvatar />
       </Dialog>
       {/* --- avatar change modal end --- */}
+
+      {/* --- cover image modal start --- */}
+      <Dialog
+        visible={coverImageModalVisible}
+        style={{ width: "35vw" }}
+        breakpoints={{ "960px": "75vw", "641px": "100vw" }}
+        onHide={() => {
+          if (!coverImageModalVisible) return;
+          setCoverImageModalVisible(false);
+        }}
+      >
+        <ChangeCoverImg />
+      </Dialog>
+      {/* --- cover image change modal end --- */}
     </>
   );
 };
