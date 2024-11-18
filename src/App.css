@@ -1,0 +1,26 @@
+/* --- Basic setup --- */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+/* --- Reusable class --- */
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
