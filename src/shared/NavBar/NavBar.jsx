@@ -10,7 +10,7 @@ const NavBar = () => {
     <nav>
       <div className="wrapper py-6 px-4 xl:px-0">
         <div className="flex items-center justify-between">
-          <Link to="/home">
+          <Link to="/">
             <div className="flex items-center gap-5">
               <p className="text-[24px] font-bold text-[#2FCD71]">
                 Authen<span className="text-gray-500">tication</span>

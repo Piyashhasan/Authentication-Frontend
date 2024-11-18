@@ -8,7 +8,7 @@ const MobileNav = ({ toggleMobileMenu, setToggleMobileMenu }) => {
         onClick={() => setToggleMobileMenu(!toggleMobileMenu)}
         className="flex justify-end"
       >
-        <ImCross className="text-2xl cursor-pointer text-[#0d0e43] mr-[18px] mt-[8px]" />
+        <ImCross className="text-2xl cursor-pointer text-[#0d0e43] mr-[19px] mt-[9px]" />
       </div>
       <div className="py-20">
         <ul className="flex flex-col items-center justify-center gap-8 font-bold text-lg">
